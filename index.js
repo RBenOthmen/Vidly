@@ -27,6 +27,19 @@ app.get("/api/movies/:id", (req, res) => {
     res.send(movie);
 });
 
+// -------------------------------------------------- POST --------------------------------------------------
+app.post("/api/movies", (req, res) => {
+    const { error } = validateMovie(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
+    const movie = {
+        id: movies.length + 1,
+        name: req.body.name,
+    };
+    movies.push(movie);
+    res.send(movie);
+});
+
 
 
 
