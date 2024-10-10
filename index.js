@@ -20,6 +20,13 @@ app.get("/api/movies", (req, res) => {
     res.send(movies);
 });
 
+// -------------------------------------------------- GET by ID --------------------------------------------------
+app.get("/api/movies/:id", (req, res) => {
+    const movie = movies.find((c) => c.id === parseInt(req.params.id));
+    if (!movie) return res.status(404).send("The movie with the given ID was not found.");
+    res.send(movie);
+});
+
 
 
 
