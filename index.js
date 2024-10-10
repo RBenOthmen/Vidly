@@ -15,6 +15,11 @@ app.get("/", (req, res) => {
     res.send("Welcome to VIDLY");
 });
 
+// -------------------------------------------------- GET ALL --------------------------------------------------
+app.get("/api/movies", (req, res) => {
+    res.send(movies);
+});
+
 
 
 
